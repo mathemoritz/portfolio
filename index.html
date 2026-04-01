@@ -33,7 +33,6 @@
       -webkit-font-smoothing: antialiased;
     }
 
-    /* ── LAYOUT ── */
     .container {
       max-width: 720px;
       margin: 0 auto;
@@ -185,30 +184,44 @@
       line-height: 1.65;
     }
 
-    .item-tags {
+    .item-desc + .item-desc {
+      margin-top: 0.35rem;
+    }
+
+    /* ── HONORS LIST ── */
+    .honors-list {
+      list-style: none;
+    }
+
+    .honors-list li {
+      font-size: 0.9rem;
+      color: var(--text);
+      padding: 0.6rem 0;
+      border-bottom: 1px solid var(--rule);
       display: flex;
-      flex-wrap: wrap;
-      gap: 0.4rem;
-      margin-top: 0.5rem;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 1rem;
     }
 
-    .item-tags span {
-      font-size: 0.7rem;
+    .honors-list li:last-child {
+      border-bottom: none;
+    }
+
+    .honor-detail {
+      font-size: 0.8rem;
       color: var(--faint);
-      letter-spacing: 0.03em;
-      text-transform: uppercase;
+      flex-shrink: 0;
     }
 
-    .item-tags span::after {
-      content: ' ·';
-      color: var(--num);
+    .honor-sub {
+      display: block;
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-top: 0.15rem;
     }
 
-    .item-tags span:last-child::after {
-      content: '';
-    }
-
-    /* ── SKILLS LIST ── */
+    /* ── SKILLS ── */
     .skills-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -231,34 +244,8 @@
     .skill-group li {
       font-size: 0.875rem;
       color: var(--muted);
-      padding: 0.25rem 0;
+      padding: 0.2rem 0;
       line-height: 1.5;
-    }
-
-    /* ── HONORS ── */
-    .honors-list {
-      list-style: none;
-    }
-
-    .honors-list li {
-      font-size: 0.9rem;
-      color: var(--text);
-      padding: 0.5rem 0;
-      border-bottom: 1px solid var(--rule);
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      gap: 1rem;
-    }
-
-    .honors-list li:last-child {
-      border-bottom: none;
-    }
-
-    .honors-list .honor-detail {
-      font-size: 0.8rem;
-      color: var(--faint);
-      flex-shrink: 0;
     }
 
     /* ── CONTACT ── */
@@ -322,8 +309,7 @@
         <nav>
           <ul class="header-links">
             <li><a href="mailto:mosch@stanford.edu">Email</a></li>
-            <li><a href="https://linkedin.com/in/moritz.schreyoegg" target="_blank">LinkedIn</a></li>
-            <li><a href="https://github.com/" target="_blank">GitHub</a></li>
+            <li><a href="https://www.linkedin.com/in/moritzschreyoegg" target="_blank">LinkedIn</a></li>
             <li><a href="resume_MoritzSchreyoegg_updated.pdf" target="_blank">Resume</a></li>
           </ul>
         </nav>
@@ -333,125 +319,14 @@
     <!-- HERO -->
     <div class="hero fade-in">
       <h1 class="hero-hook">i want to build <em>excavators</em>,<br>not shovels.</h1>
-      <p class="hero-sub">Stanford Honors Mathematics. I use quantitative thinking and structured problem-solving to move industries forward — from manufacturing analytics to multi-agent AI systems. Four languages, five countries, and a drive to make complex things simple.</p>
-      <p class="hero-sub">Currently an analyst at Stanford Consulting and incoming data science intern at Tacto.</p>
+      <p class="hero-sub">B.S. Mathematics at Stanford. I turn complex systems into clear structures — from manufacturing analytics across 16 countries to automated pipelines that replace 50 hours of manual work a week.</p>
       <div class="hero-scroll">scroll</div>
     </div>
 
-    <!-- 01 EXPERIENCE -->
+    <!-- 01 EDUCATION -->
     <div class="section fade-in">
       <div class="section-head">
         <span class="section-num">01</span>
-        <h2 class="section-title">experience</h2>
-      </div>
-      <ul class="items">
-        <li class="item">
-          <span class="item-num">01</span>
-          <div class="item-content">
-            <h3>Data Scientist & EiR Intern</h3>
-            <div class="item-meta">Tacto (Sequoia & Index backed) · Jul – Oct 2025</div>
-            <p class="item-desc">Engineered data automation pipelines for GTM and Sales, eliminating ~80 hours of manual work weekly. Built multi-agent systems for context-aware reasoning on unstructured data. Applied predictive modeling to identify high-potential customer segments.</p>
-          </div>
-        </li>
-        <li class="item">
-          <span class="item-num">02</span>
-          <div class="item-content">
-            <h3>Analyst</h3>
-            <div class="item-meta">Stanford Consulting · Feb 2025 – Present</div>
-            <p class="item-desc">Conduct structured research and analysis across client engagements. Synthesize data into actionable recommendations and deliver findings to senior stakeholders.</p>
-          </div>
-        </li>
-        <li class="item">
-          <span class="item-num">03</span>
-          <div class="item-content">
-            <h3>Automation Lead</h3>
-            <div class="item-meta">premiumwohnen bodensee GmbH · Feb – Sep 2024</div>
-            <p class="item-desc">Developed internal applications to digitize real estate operations, reducing manual workload by 40 hours/week. Trained ML models on historical sales data for property price prediction.</p>
-          </div>
-        </li>
-        <li class="item">
-          <span class="item-num">04</span>
-          <div class="item-content">
-            <h3>Research Intern, Advanced Analytics</h3>
-            <div class="item-meta">ZF Friedrichshafen · Sep 2023 – Jan 2024</div>
-            <p class="item-desc">Built knowledge graphs for manufacturing dependency mapping across 16 international plants. Integrated optimized C++ kernels into Python ETL pipelines.</p>
-          </div>
-        </li>
-        <li class="item">
-          <span class="item-num">05</span>
-          <div class="item-content">
-            <h3>Researcher</h3>
-            <div class="item-meta">University of Tokyo · Apr – Aug 2023</div>
-            <p class="item-desc">Theoretical research on the McKay Correspondence, bridging Group Theory and Algebraic Geometry. Authored analysis on sensory factors in business strategy under Prof. Schillack.</p>
-          </div>
-        </li>
-      </ul>
-    </div>
-
-    <!-- 02 PROJECTS -->
-    <div class="section fade-in">
-      <div class="section-head">
-        <span class="section-num">02</span>
-        <h2 class="section-title">things i've built</h2>
-      </div>
-      <ul class="items">
-        <li class="item">
-          <span class="item-num">01</span>
-          <div class="item-content">
-            <h3>ML Validation Pipeline</h3>
-            <p class="item-desc">Architected a testing pipeline for asset pricing models using moving-block bootstrapping. Reduced false discovery rates from 97% to 5% in high-noise datasets.</p>
-            <div class="item-tags">
-              <span>Python</span><span>NumPy</span><span>SciPy</span><span>scikit-learn</span>
-            </div>
-          </div>
-        </li>
-        <li class="item">
-          <span class="item-num">02</span>
-          <div class="item-content">
-            <h3>GTM Intelligence Engine</h3>
-            <p class="item-desc">Hierarchical multi-agent system processing unstructured data — emails, transcripts, CRM notes — for context-aware sales reasoning. Improved win-probability prediction by 30%.</p>
-            <div class="item-tags">
-              <span>Python</span><span>LLMs</span><span>ETL</span><span>Multi-Agent</span>
-            </div>
-          </div>
-        </li>
-        <li class="item">
-          <span class="item-num">03</span>
-          <div class="item-content">
-            <h3>Traffic Signal Optimization</h3>
-            <p class="item-desc">Graph-based scheduling algorithm for automated traffic phase timing. Linear constraint solving to maximize intersection throughput across complex networks.</p>
-            <div class="item-tags">
-              <span>Python</span><span>Graph Theory</span><span>Linear Programming</span>
-            </div>
-          </div>
-        </li>
-        <li class="item">
-          <span class="item-num">04</span>
-          <div class="item-content">
-            <h3>F1 Strategy Predictor</h3>
-            <p class="item-desc">LightGBM model on FastF1 telemetry predicting pit windows with 3.2 lap MAE. Engineered features for tire degradation with strict leakage prevention.</p>
-            <div class="item-tags">
-              <span>Python</span><span>LightGBM</span><span>pandas</span><span>FastF1</span>
-            </div>
-          </div>
-        </li>
-        <li class="item">
-          <span class="item-num">05</span>
-          <div class="item-content">
-            <h3>Recycling Startup — Co-Founder</h3>
-            <p class="item-desc">Founded and led a 23-member team building a campus-wide recycling infrastructure. Designed operations, managed logistics, and secured institutional partnerships.</p>
-            <div class="item-tags">
-              <span>Leadership</span><span>Operations</span><span>Impact</span>
-            </div>
-          </div>
-        </li>
-      </ul>
-    </div>
-
-    <!-- 03 EDUCATION -->
-    <div class="section fade-in">
-      <div class="section-head">
-        <span class="section-num">03</span>
         <h2 class="section-title">education</h2>
       </div>
       <ul class="items">
@@ -459,114 +334,198 @@
           <span class="item-num">01</span>
           <div class="item-content">
             <h3>Stanford University</h3>
-            <div class="item-meta">B.S. Mathematics (Honors) · Apr 2024 – Present</div>
-            <p class="item-desc">GPA: 4.04. Coursework in real analysis, linear algebra, probability, optimization, and machine learning. Member of Stanford Consulting.</p>
+            <div class="item-meta">B.S. in Mathematics · GPA: 4.09 · Expected Jun 2028</div>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <!-- 02 EXPERIENCE -->
+    <div class="section fade-in">
+      <div class="section-head">
+        <span class="section-num">02</span>
+        <h2 class="section-title">experience</h2>
+      </div>
+      <ul class="items">
+        <li class="item">
+          <span class="item-num">01</span>
+          <div class="item-content">
+            <h3>Data Scientist & EiR Intern</h3>
+            <div class="item-meta">Tacto (backed by Sequoia and Index) · Jul 2025 – Sep 2025</div>
+            <p class="item-desc">Built an automated call transcription and classification pipeline for the BDR team and developed role-specific internal tools, eliminating approximately 50 hours of manual workload weekly across the organization.</p>
+            <p class="item-desc">Designed an automated sales pipeline audit tool with custom key indicators for deal-stage progression, data quality, and advancement timing, directly improving forecast reliability and resource allocation.</p>
           </div>
         </li>
         <li class="item">
           <span class="item-num">02</span>
           <div class="item-content">
-            <h3>University of Tokyo</h3>
-            <div class="item-meta">Dual Research Program · Apr – Aug 2023</div>
-            <p class="item-desc">Research in pure mathematics and economics. Studied under faculty in the Graduate School of Mathematical Sciences.</p>
+            <h3>Automation Lead (Full-Time)</h3>
+            <div class="item-meta">premiumwohnen bodensee GmbH · Feb 2024 – Sep 2024</div>
+            <p class="item-desc">Developed a suite of user-friendly internal applications to digitize back-office operations, automating workflows to reduce manual workload by 40 hours/week.</p>
+            <p class="item-desc">Trained machine learning models to predict property selling prices, utilizing historical sales data and feature engineering to automate real estate valuation and market analysis.</p>
           </div>
         </li>
         <li class="item">
           <span class="item-num">03</span>
           <div class="item-content">
-            <h3>EF / New York University</h3>
-            <div class="item-meta">University & Research Foundation · Sep 2022 – Mar 2023</div>
+            <h3>Research Intern</h3>
+            <div class="item-meta">ZF Friedrichshafen – Advanced Analytics Initiative · Oct 2023 – Dec 2024</div>
+            <p class="item-desc">Engineered knowledge graph models and graph traversal algorithms alongside a Post-Doc to enable AI-driven root cause analysis across manufacturing dependency networks.</p>
+            <p class="item-desc">Built a Python/C++ prototype for real-time data analysis and automated SQL/Python ETL pipelines aggregating plant data from 16 countries into live Power BI dashboards.</p>
           </div>
         </li>
         <li class="item">
           <span class="item-num">04</span>
           <div class="item-content">
-            <h3>Graf-Zeppelin-Gymnasium</h3>
-            <div class="item-meta">Abitur · Sep 2016 – Jul 2022</div>
-            <p class="item-desc">Final grade: 1.0 (highest possible). Focus on mathematics and physics.</p>
+            <h3>Student Researcher</h3>
+            <div class="item-meta">University of Tokyo · Jun 2023 – Aug 2023</div>
+            <p class="item-desc">Researched symmetry as a universal language across disciplines, exploring the McKay Correspondence to connect finite group representations with the geometric symmetries found in Japanese family emblems.</p>
+            <p class="item-desc">Authored a multidimensional analysis on "Capitalism and the Senses," evaluating how sensory factors drive innovative strategies in business and policy while proposing ethical frameworks to mitigate consumer manipulation.</p>
+          </div>
+        </li>
+        <li class="item">
+          <span class="item-num">05</span>
+          <div class="item-content">
+            <h3>Founder & CEO</h3>
+            <div class="item-meta">"FlaschLights" · Sep 2020 – Jul 2022</div>
+            <p class="item-desc">Founded a 23-member glass waste recycling startup, managing production and delivery teams to generate €8,000. Received the Economics Award of Südwestmetall — one of two students selected from Germany's largest enterprise association.</p>
+            <p class="item-desc">Built an e-commerce platform (React/Python) with automated inventory management and checkout logic.</p>
           </div>
         </li>
       </ul>
     </div>
 
-    <!-- 04 HONORS -->
+    <!-- 03 PROJECTS -->
     <div class="section fade-in">
       <div class="section-head">
-        <span class="section-num">04</span>
-        <h2 class="section-title">honors & awards</h2>
+        <span class="section-num">03</span>
+        <h2 class="section-title">projects</h2>
       </div>
-      <ul class="honors-list">
-        <li>
-          Stanford Honors Mathematics Program
-          <span class="honor-detail">Stanford, 2024</span>
+      <ul class="items">
+        <li class="item">
+          <span class="item-num">01</span>
+          <div class="item-content">
+            <h3>Dependence-Aware ML Validation Pipeline</h3>
+            <p class="item-desc">Architected a scalable testing pipeline for asset pricing models that automates significance calibration via moving-block bootstrapping, reducing false discovery rates in high-noise datasets from 97% to 5%.</p>
+          </div>
         </li>
-        <li>
-          Abitur Grade 1.0 — Top of Class
-          <span class="honor-detail">Germany, 2022</span>
+        <li class="item">
+          <span class="item-num">02</span>
+          <div class="item-content">
+            <h3>Multi-Agent GTM Intelligence Engine</h3>
+            <p class="item-desc">Architected a hierarchical multi-agent system where specialized sub-agents process unstructured modalities (emails, transcripts, etc.) to feed a central meta-agent for context-aware reasoning and historical trend analysis.</p>
+            <p class="item-desc">Deployed a predictive pipeline forecasting tool that synthesizes agentic insights to automate sales coaching, reducing manual workload and improving win-probability prediction accuracy by 30%.</p>
+          </div>
         </li>
-        <li>
-          University of Tokyo Research Fellowship
-          <span class="honor-detail">Tokyo, 2023</span>
+        <li class="item">
+          <span class="item-num">03</span>
+          <div class="item-content">
+            <h3>Project Zeus: Power Grid as Economic Indicator</h3>
+            <p class="item-desc">Built a signal extraction pipeline (OLS weather adjustment, STL decomposition, z-score normalization) over 14,400 state-months of federal electricity, climate, and economic data to isolate industrial economic signals.</p>
+            <p class="item-desc">Mapped state-level correlations (r = +0.83 in manufacturing states to r = −0.62 in tech-driven states), revealing a geographic fingerprint of structural economic transformation with a 1–3 month lead over official indicators.</p>
+          </div>
         </li>
-        <li>
-          e-fellows.net Scholarship Recipient
-          <span class="honor-detail">Germany</span>
-        </li>
-        <li>
-          Founder, Campus Recycling Initiative (23 members)
-          <span class="honor-detail">Germany, 2021</span>
+        <li class="item">
+          <span class="item-num">04</span>
+          <div class="item-content">
+            <h3>Traffic Signal Control Algorithm</h3>
+            <p class="item-desc">Implemented a graph-based scheduling algorithm to automate traffic phase timing, utilizing linear constraint solving to maximize intersection throughput and reduce system latency.</p>
+          </div>
         </li>
       </ul>
     </div>
 
-    <!-- 05 SKILLS & LANGUAGES -->
+    <!-- 04 TECHNICAL SKILLS -->
     <div class="section fade-in">
       <div class="section-head">
-        <span class="section-num">05</span>
-        <h2 class="section-title">skills & languages</h2>
+        <span class="section-num">04</span>
+        <h2 class="section-title">technical skills</h2>
       </div>
       <div class="skills-grid">
         <div class="skill-group">
-          <h4>Technical</h4>
-          <ul>
-            <li>Python, C++, SQL, R</li>
-            <li>Machine Learning & Statistical Modeling</li>
-            <li>Data Engineering & ETL Pipelines</li>
-            <li>Graph Theory & Optimization</li>
-            <li>Multi-Agent AI Systems</li>
-            <li>Knowledge Graphs</li>
-          </ul>
-        </div>
-        <div class="skill-group">
-          <h4>Analytical</h4>
-          <ul>
-            <li>Structured Problem Solving</li>
-            <li>Quantitative Analysis</li>
-            <li>Market Research & Sizing</li>
-            <li>Data Visualization</li>
-            <li>Hypothesis-Driven Thinking</li>
-            <li>Stakeholder Communication</li>
-          </ul>
-        </div>
-        <div class="skill-group">
           <h4>Languages</h4>
           <ul>
-            <li>German — Native</li>
-            <li>English — Fluent (C2)</li>
-            <li>French — Intermediate (B2)</li>
-            <li>Japanese — Basic (A2)</li>
+            <li>Python</li>
+            <li>C++</li>
+            <li>JavaScript</li>
+            <li>R</li>
+            <li>SQL</li>
+            <li>LaTeX</li>
           </ul>
         </div>
         <div class="skill-group">
-          <h4>Tools</h4>
+          <h4>Data & ML</h4>
           <ul>
-            <li>NumPy, pandas, scikit-learn</li>
-            <li>SciPy, LightGBM, PyTorch</li>
-            <li>Git, Docker, Linux</li>
-            <li>Tableau, Excel, LaTeX</li>
+            <li>PyTorch</li>
+            <li>scikit-learn</li>
+            <li>NumPy</li>
+            <li>pandas</li>
+            <li>Matplotlib</li>
+            <li>Power BI</li>
+            <li>Git</li>
+            <li>n8n</li>
           </ul>
         </div>
       </div>
+    </div>
+
+    <!-- 05 HONORS -->
+    <div class="section fade-in">
+      <div class="section-head">
+        <span class="section-num">05</span>
+        <h2 class="section-title">honors</h2>
+      </div>
+      <ul class="honors-list">
+        <li>
+          <div>
+            Badge of Honor by the State of Baden-Württemberg
+            <span class="honor-sub">Awarded for being the youngest to achieve a perfect score in the national mathematics competition</span>
+          </div>
+          <span class="honor-detail">Nov 2019</span>
+        </li>
+        <li>
+          <div>
+            Economics Award of Südwestmetall
+            <span class="honor-sub">One of two students selected for the award from Germany's largest enterprise association</span>
+          </div>
+          <span class="honor-detail">2022</span>
+        </li>
+        <li>
+          <div>
+            STEM Excellence Award
+            <span class="honor-sub">Honored for exceptional performance in Mathematics and Physics for work in the youth research center</span>
+          </div>
+          <span class="honor-detail">2022</span>
+        </li>
+        <li>
+          <div>
+            QUANTA Magazine – International Competition
+            <span class="honor-sub">Selected for the "Mathematics" and "Mental Ability" categories</span>
+          </div>
+          <span class="honor-detail">Dec 2021</span>
+        </li>
+        <li>
+          <div>
+            Golden Zeppelin (Social Award)
+            <span class="honor-sub">Recognized for outstanding social engagement in Friedrichshafen</span>
+          </div>
+          <span class="honor-detail">Jul 2020</span>
+        </li>
+        <li>
+          <div>
+            Gold Prize – Mathematical Kangaroo
+            <span class="honor-sub">Achieved a perfect score in the international Mathematical Kangaroo competition</span>
+          </div>
+          <span class="honor-detail">Jul 2020</span>
+        </li>
+        <li>
+          <div>
+            First Prize – National Mathematics Competition for Secondary Schools
+            <span class="honor-sub">Consistently awarded the first prize in all rounds of the national competition for young mathematicians</span>
+          </div>
+          <span class="honor-detail">2018, 2019, 2020</span>
+        </li>
+      </ul>
     </div>
 
     <!-- 06 CONTACT -->
@@ -575,11 +534,9 @@
         <span class="section-num">06</span>
         <h2 class="section-title">let's talk</h2>
       </div>
-      <p class="hero-sub" style="margin-bottom: 1.5rem;">Always open to conversations about hard problems, structured thinking, or building something meaningful.</p>
       <div class="contact-row">
         <a href="mailto:mosch@stanford.edu">mosch@stanford.edu</a>
-        <a href="https://linkedin.com/in/moritz.schreyoegg" target="_blank">LinkedIn</a>
-        <a href="https://github.com/" target="_blank">GitHub</a>
+        <a href="https://www.linkedin.com/in/moritzschreyoegg" target="_blank">LinkedIn</a>
       </div>
     </div>
 
