@@ -28,7 +28,7 @@
       font-family: 'Inter', -apple-system, sans-serif;
       background: var(--bg);
       color: var(--text);
-      line-height: 1.7;
+      line-height: 1.6;
       font-weight: 400;
       -webkit-font-smoothing: antialiased;
     }
@@ -41,7 +41,7 @@
 
     /* ── HEADER ── */
     header {
-      padding: 2.5rem 0 1.5rem;
+      padding: 1.75rem 0 1.25rem;
       border-bottom: 1px solid var(--rule);
     }
 
@@ -78,7 +78,7 @@
 
     /* ── HERO ── */
     .hero {
-      padding: 6rem 0 5rem;
+      padding: 4rem 0 3rem;
     }
 
     .hero-hook {
@@ -87,7 +87,7 @@
       font-weight: 400;
       line-height: 1.3;
       letter-spacing: -0.02em;
-      margin-bottom: 2rem;
+      margin-bottom: 1.25rem;
       color: var(--text);
     }
 
@@ -97,11 +97,18 @@
     }
 
     .hero-sub {
-      font-size: 1rem;
+      font-size: 0.95rem;
       color: var(--muted);
       max-width: 540px;
-      line-height: 1.8;
-      margin-bottom: 1rem;
+      line-height: 1.65;
+      margin-bottom: 0.75rem;
+    }
+
+    .hero-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 2rem;
     }
 
     .hero-scroll {
@@ -109,12 +116,28 @@
       letter-spacing: 0.1em;
       text-transform: uppercase;
       color: var(--faint);
-      margin-top: 3rem;
+    }
+
+    .expand-btn {
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--faint);
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-family: inherit;
+      transition: color 0.2s;
+      padding: 0;
+    }
+
+    .expand-btn:hover {
+      color: var(--text);
     }
 
     /* ── SECTIONS ── */
     .section {
-      padding: 4rem 0;
+      padding: 2.5rem 0;
       border-top: 1px solid var(--rule);
     }
 
@@ -122,7 +145,7 @@
       display: flex;
       align-items: baseline;
       gap: 1.5rem;
-      margin-bottom: 2.5rem;
+      margin-bottom: 1.5rem;
     }
 
     .section-num {
@@ -135,7 +158,7 @@
 
     .section-title {
       font-family: 'Newsreader', Georgia, serif;
-      font-size: 1.5rem;
+      font-size: 1.3rem;
       font-weight: 400;
       letter-spacing: -0.01em;
     }
@@ -149,9 +172,10 @@
       display: grid;
       grid-template-columns: 2.5rem 1fr;
       gap: 0;
-      padding: 1.25rem 0;
+      padding: 0.7rem 0;
       border-bottom: 1px solid var(--rule);
       align-items: baseline;
+      cursor: pointer;
     }
 
     .item:last-child {
@@ -166,26 +190,44 @@
     }
 
     .item-content h3 {
-      font-size: 1rem;
+      font-size: 0.925rem;
       font-weight: 500;
-      margin-bottom: 0.2rem;
+      margin-bottom: 0;
       line-height: 1.4;
     }
 
+    /* ── COLLAPSIBLE DETAILS ── */
+    .item-details {
+      display: grid;
+      grid-template-rows: 0fr;
+      transition: grid-template-rows 0.35s ease;
+    }
+
+    .item-details-inner {
+      overflow: hidden;
+    }
+
+    .item:hover .item-details,
+    .item.expanded .item-details,
+    .all-expanded .item .item-details {
+      grid-template-rows: 1fr;
+    }
+
     .item-meta {
-      font-size: 0.85rem;
+      font-size: 0.8rem;
       color: var(--muted);
-      margin-bottom: 0.35rem;
+      margin-top: 0.25rem;
+      margin-bottom: 0.25rem;
     }
 
     .item-desc {
-      font-size: 0.875rem;
+      font-size: 0.825rem;
       color: var(--muted);
-      line-height: 1.65;
+      line-height: 1.55;
     }
 
     .item-desc + .item-desc {
-      margin-top: 0.35rem;
+      margin-top: 0.25rem;
     }
 
     /* ── HONORS LIST ── */
@@ -194,18 +236,22 @@
     }
 
     .honors-list li {
-      font-size: 0.9rem;
+      font-size: 0.85rem;
       color: var(--text);
-      padding: 0.6rem 0;
+      padding: 0.4rem 0;
       border-bottom: 1px solid var(--rule);
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      gap: 1rem;
+      cursor: pointer;
     }
 
     .honors-list li:last-child {
       border-bottom: none;
+    }
+
+    .honor-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 1rem;
     }
 
     .honor-detail {
@@ -214,27 +260,43 @@
       flex-shrink: 0;
     }
 
+    .honor-expand {
+      display: grid;
+      grid-template-rows: 0fr;
+      transition: grid-template-rows 0.35s ease;
+    }
+
+    .honor-expand-inner {
+      overflow: hidden;
+    }
+
+    .honors-list li:hover .honor-expand,
+    .honors-list li.expanded .honor-expand,
+    .all-expanded .honors-list li .honor-expand {
+      grid-template-rows: 1fr;
+    }
+
     .honor-sub {
       display: block;
-      font-size: 0.8rem;
+      font-size: 0.75rem;
       color: var(--muted);
-      margin-top: 0.15rem;
+      margin-top: 0.2rem;
     }
 
     /* ── SKILLS ── */
     .skills-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 2rem 3rem;
+      gap: 1.25rem 3rem;
     }
 
     .skill-group h4 {
-      font-size: 0.75rem;
+      font-size: 0.7rem;
       font-weight: 600;
       letter-spacing: 0.08em;
       text-transform: uppercase;
       color: var(--faint);
-      margin-bottom: 0.75rem;
+      margin-bottom: 0.5rem;
     }
 
     .skill-group ul {
@@ -242,10 +304,10 @@
     }
 
     .skill-group li {
-      font-size: 0.875rem;
+      font-size: 0.825rem;
       color: var(--muted);
-      padding: 0.2rem 0;
-      line-height: 1.5;
+      padding: 0.1rem 0;
+      line-height: 1.45;
     }
 
     /* ── CONTACT ── */
@@ -256,7 +318,7 @@
     }
 
     .contact-row a {
-      font-size: 0.875rem;
+      font-size: 0.825rem;
       color: var(--text);
       text-decoration: none;
       border-bottom: 1px solid var(--rule);
@@ -271,8 +333,8 @@
     /* ── FOOTER ── */
     footer {
       border-top: 1px solid var(--rule);
-      padding: 2rem 0;
-      font-size: 0.75rem;
+      padding: 1.5rem 0;
+      font-size: 0.7rem;
       color: var(--faint);
     }
 
@@ -290,11 +352,11 @@
 
     /* ── RESPONSIVE ── */
     @media (max-width: 640px) {
-      .hero { padding: 4rem 0 3rem; }
+      .hero { padding: 3rem 0 2rem; }
       .hero-hook { font-size: 1.75rem; }
       .skills-grid { grid-template-columns: 1fr; }
       .header-links { gap: 1rem; }
-      .honors-list li { flex-direction: column; gap: 0.15rem; }
+      .honor-top { flex-direction: column; gap: 0.15rem; }
     }
   </style>
 </head>
@@ -320,7 +382,10 @@
     <div class="hero fade-in">
       <h1 class="hero-hook">i want to build <em>excavators</em>,<br>not shovels.</h1>
       <p class="hero-sub">B.S. Mathematics at Stanford. I turn complex systems into clear structures — from manufacturing analytics across 16 countries to automated pipelines that replace 50 hours of manual work a week.</p>
-      <div class="hero-scroll">scroll</div>
+      <div class="hero-bottom">
+        <span class="hero-scroll">scroll</span>
+        <button class="expand-btn" id="expandBtn">expand all</button>
+      </div>
     </div>
 
     <!-- 01 EDUCATION -->
@@ -334,7 +399,11 @@
           <span class="item-num">01</span>
           <div class="item-content">
             <h3>Stanford University</h3>
-            <div class="item-meta">B.S. in Mathematics · GPA: 4.09 · Expected Jun 2028</div>
+            <div class="item-details">
+              <div class="item-details-inner">
+                <div class="item-meta">B.S. in Mathematics (Honors) · GPA: 4.09 · Expected Jun 2028</div>
+              </div>
+            </div>
           </div>
         </li>
       </ul>
@@ -351,45 +420,65 @@
           <span class="item-num">01</span>
           <div class="item-content">
             <h3>Data Scientist & EiR Intern</h3>
-            <div class="item-meta">Tacto (backed by Sequoia and Index) · Jul 2025 – Sep 2025</div>
-            <p class="item-desc">Built an automated call transcription and classification pipeline for the BDR team and developed role-specific internal tools, eliminating approximately 50 hours of manual workload weekly across the organization.</p>
-            <p class="item-desc">Designed an automated sales pipeline audit tool with custom key indicators for deal-stage progression, data quality, and advancement timing, directly improving forecast reliability and resource allocation.</p>
+            <div class="item-details">
+              <div class="item-details-inner">
+                <div class="item-meta">Tacto (backed by Sequoia and Index) · Jul 2025 – Sep 2025</div>
+                <p class="item-desc">Built an automated call transcription and classification pipeline for the BDR team and developed role-specific internal tools, eliminating approximately 50 hours of manual workload weekly across the organization.</p>
+                <p class="item-desc">Designed an automated sales pipeline audit tool with custom key indicators for deal-stage progression, data quality, and advancement timing, directly improving forecast reliability and resource allocation.</p>
+              </div>
+            </div>
           </div>
         </li>
         <li class="item">
           <span class="item-num">02</span>
           <div class="item-content">
             <h3>Automation Lead (Full-Time)</h3>
-            <div class="item-meta">premiumwohnen bodensee GmbH · Feb 2024 – Sep 2024</div>
-            <p class="item-desc">Developed a suite of user-friendly internal applications to digitize back-office operations, automating workflows to reduce manual workload by 40 hours/week.</p>
-            <p class="item-desc">Trained machine learning models to predict property selling prices, utilizing historical sales data and feature engineering to automate real estate valuation and market analysis.</p>
+            <div class="item-details">
+              <div class="item-details-inner">
+                <div class="item-meta">premiumwohnen bodensee GmbH · Feb 2024 – Sep 2024</div>
+                <p class="item-desc">Developed a suite of user-friendly internal applications to digitize back-office operations, automating workflows to reduce manual workload by 40 hours/week.</p>
+                <p class="item-desc">Trained machine learning models to predict property selling prices, utilizing historical sales data and feature engineering to automate real estate valuation and market analysis.</p>
+              </div>
+            </div>
           </div>
         </li>
         <li class="item">
           <span class="item-num">03</span>
           <div class="item-content">
             <h3>Research Intern</h3>
-            <div class="item-meta">ZF Friedrichshafen – Advanced Analytics Initiative · Oct 2023 – Dec 2024</div>
-            <p class="item-desc">Engineered knowledge graph models and graph traversal algorithms alongside a Post-Doc to enable AI-driven root cause analysis across manufacturing dependency networks.</p>
-            <p class="item-desc">Built a Python/C++ prototype for real-time data analysis and automated SQL/Python ETL pipelines aggregating plant data from 16 countries into live Power BI dashboards.</p>
+            <div class="item-details">
+              <div class="item-details-inner">
+                <div class="item-meta">ZF Friedrichshafen – Advanced Analytics Initiative · Oct 2023 – Dec 2024</div>
+                <p class="item-desc">Engineered knowledge graph models and graph traversal algorithms alongside a Post-Doc to enable AI-driven root cause analysis across manufacturing dependency networks.</p>
+                <p class="item-desc">Built a Python/C++ prototype for real-time data analysis and automated SQL/Python ETL pipelines aggregating plant data from 16 countries into live Power BI dashboards.</p>
+              </div>
+            </div>
           </div>
         </li>
         <li class="item">
           <span class="item-num">04</span>
           <div class="item-content">
             <h3>Student Researcher</h3>
-            <div class="item-meta">University of Tokyo · Jun 2023 – Aug 2023</div>
-            <p class="item-desc">Researched symmetry as a universal language across disciplines, exploring the McKay Correspondence to connect finite group representations with the geometric symmetries found in Japanese family emblems.</p>
-            <p class="item-desc">Authored a multidimensional analysis on "Capitalism and the Senses," evaluating how sensory factors drive innovative strategies in business and policy while proposing ethical frameworks to mitigate consumer manipulation.</p>
+            <div class="item-details">
+              <div class="item-details-inner">
+                <div class="item-meta">University of Tokyo · Jun 2023 – Aug 2023</div>
+                <p class="item-desc">Researched symmetry as a universal language across disciplines, exploring the McKay Correspondence to connect finite group representations with the geometric symmetries found in Japanese family emblems.</p>
+                <p class="item-desc">Authored a multidimensional analysis on "Capitalism and the Senses," evaluating how sensory factors drive innovative strategies in business and policy while proposing ethical frameworks to mitigate consumer manipulation.</p>
+              </div>
+            </div>
           </div>
         </li>
         <li class="item">
           <span class="item-num">05</span>
           <div class="item-content">
             <h3>Founder & CEO</h3>
-            <div class="item-meta">"FlaschLights" · Sep 2020 – Jul 2022</div>
-            <p class="item-desc">Founded a 23-member glass waste recycling startup, managing production and delivery teams to generate €8,000. Received the Economics Award of Südwestmetall — one of two students selected from Germany's largest enterprise association.</p>
-            <p class="item-desc">Built an e-commerce platform (React/Python) with automated inventory management and checkout logic.</p>
+            <div class="item-details">
+              <div class="item-details-inner">
+                <div class="item-meta">"FlaschLights" · Sep 2020 – Jul 2022</div>
+                <p class="item-desc">Founded a 23-member glass waste recycling startup, managing production and delivery teams to generate €8,000. Received the Economics Award of Südwestmetall — one of two students selected from Germany's largest enterprise association.</p>
+                <p class="item-desc">Built an e-commerce platform (React/Python) with automated inventory management and checkout logic.</p>
+              </div>
+            </div>
           </div>
         </li>
       </ul>
@@ -406,30 +495,46 @@
           <span class="item-num">01</span>
           <div class="item-content">
             <h3>Dependence-Aware ML Validation Pipeline</h3>
-            <p class="item-desc">Architected a scalable testing pipeline for asset pricing models that automates significance calibration via moving-block bootstrapping, reducing false discovery rates in high-noise datasets from 97% to 5%.</p>
+            <div class="item-details">
+              <div class="item-details-inner">
+                <p class="item-desc">Architected a scalable testing pipeline for asset pricing models that automates significance calibration via moving-block bootstrapping, reducing false discovery rates in high-noise datasets from 97% to 5%.</p>
+              </div>
+            </div>
           </div>
         </li>
         <li class="item">
           <span class="item-num">02</span>
           <div class="item-content">
             <h3>Multi-Agent GTM Intelligence Engine</h3>
-            <p class="item-desc">Architected a hierarchical multi-agent system where specialized sub-agents process unstructured modalities (emails, transcripts, etc.) to feed a central meta-agent for context-aware reasoning and historical trend analysis.</p>
-            <p class="item-desc">Deployed a predictive pipeline forecasting tool that synthesizes agentic insights to automate sales coaching, reducing manual workload and improving win-probability prediction accuracy by 30%.</p>
+            <div class="item-details">
+              <div class="item-details-inner">
+                <p class="item-desc">Architected a hierarchical multi-agent system where specialized sub-agents process unstructured modalities (emails, transcripts, etc.) to feed a central meta-agent for context-aware reasoning and historical trend analysis.</p>
+                <p class="item-desc">Deployed a predictive pipeline forecasting tool that synthesizes agentic insights to automate sales coaching, reducing manual workload and improving win-probability prediction accuracy by 30%.</p>
+              </div>
+            </div>
           </div>
         </li>
         <li class="item">
           <span class="item-num">03</span>
           <div class="item-content">
             <h3>Project Zeus: Power Grid as Economic Indicator</h3>
-            <p class="item-desc">Built a signal extraction pipeline (OLS weather adjustment, STL decomposition, z-score normalization) over 14,400 state-months of federal electricity, climate, and economic data to isolate industrial economic signals.</p>
-            <p class="item-desc">Mapped state-level correlations (r = +0.83 in manufacturing states to r = −0.62 in tech-driven states), revealing a geographic fingerprint of structural economic transformation with a 1–3 month lead over official indicators.</p>
+            <div class="item-details">
+              <div class="item-details-inner">
+                <p class="item-desc">Built a signal extraction pipeline (OLS weather adjustment, STL decomposition, z-score normalization) over 14,400 state-months of federal electricity, climate, and economic data to isolate industrial economic signals.</p>
+                <p class="item-desc">Mapped state-level correlations (r = +0.83 in manufacturing states to r = −0.62 in tech-driven states), revealing a geographic fingerprint of structural economic transformation with a 1–3 month lead over official indicators.</p>
+              </div>
+            </div>
           </div>
         </li>
         <li class="item">
           <span class="item-num">04</span>
           <div class="item-content">
             <h3>Traffic Signal Control Algorithm</h3>
-            <p class="item-desc">Implemented a graph-based scheduling algorithm to automate traffic phase timing, utilizing linear constraint solving to maximize intersection throughput and reduce system latency.</p>
+            <div class="item-details">
+              <div class="item-details-inner">
+                <p class="item-desc">Implemented a graph-based scheduling algorithm to automate traffic phase timing, utilizing linear constraint solving to maximize intersection throughput and reduce system latency.</p>
+              </div>
+            </div>
           </div>
         </li>
       </ul>
@@ -477,53 +582,81 @@
       </div>
       <ul class="honors-list">
         <li>
-          <div>
-            Badge of Honor by the State of Baden-Württemberg
-            <span class="honor-sub">Awarded for being the youngest to achieve a perfect score in the national mathematics competition</span>
+          <div class="honor-top">
+            <span>Badge of Honor by the State of Baden-Württemberg</span>
+            <span class="honor-detail">Nov 2019</span>
           </div>
-          <span class="honor-detail">Nov 2019</span>
+          <div class="honor-expand">
+            <div class="honor-expand-inner">
+              <span class="honor-sub">Awarded for being the youngest to achieve a perfect score in the national mathematics competition</span>
+            </div>
+          </div>
         </li>
         <li>
-          <div>
-            Economics Award of Südwestmetall
-            <span class="honor-sub">One of two students selected for the award from Germany's largest enterprise association</span>
+          <div class="honor-top">
+            <span>Economics Award of Südwestmetall</span>
+            <span class="honor-detail">2022</span>
           </div>
-          <span class="honor-detail">2022</span>
+          <div class="honor-expand">
+            <div class="honor-expand-inner">
+              <span class="honor-sub">One of two students selected for the award from Germany's largest enterprise association</span>
+            </div>
+          </div>
         </li>
         <li>
-          <div>
-            STEM Excellence Award
-            <span class="honor-sub">Honored for exceptional performance in Mathematics and Physics for work in the youth research center</span>
+          <div class="honor-top">
+            <span>STEM Excellence Award</span>
+            <span class="honor-detail">2022</span>
           </div>
-          <span class="honor-detail">2022</span>
+          <div class="honor-expand">
+            <div class="honor-expand-inner">
+              <span class="honor-sub">Honored for exceptional performance in Mathematics and Physics for work in the youth research center</span>
+            </div>
+          </div>
         </li>
         <li>
-          <div>
-            QUANTA Magazine – International Competition
-            <span class="honor-sub">Selected for the "Mathematics" and "Mental Ability" categories</span>
+          <div class="honor-top">
+            <span>QUANTA Magazine – International Competition</span>
+            <span class="honor-detail">Dec 2021</span>
           </div>
-          <span class="honor-detail">Dec 2021</span>
+          <div class="honor-expand">
+            <div class="honor-expand-inner">
+              <span class="honor-sub">Selected for the "Mathematics" and "Mental Ability" categories</span>
+            </div>
+          </div>
         </li>
         <li>
-          <div>
-            Golden Zeppelin (Social Award)
-            <span class="honor-sub">Recognized for outstanding social engagement in Friedrichshafen</span>
+          <div class="honor-top">
+            <span>Golden Zeppelin (Social Award)</span>
+            <span class="honor-detail">Jul 2020</span>
           </div>
-          <span class="honor-detail">Jul 2020</span>
+          <div class="honor-expand">
+            <div class="honor-expand-inner">
+              <span class="honor-sub">Recognized for outstanding social engagement in Friedrichshafen</span>
+            </div>
+          </div>
         </li>
         <li>
-          <div>
-            Gold Prize – Mathematical Kangaroo
-            <span class="honor-sub">Achieved a perfect score in the international Mathematical Kangaroo competition</span>
+          <div class="honor-top">
+            <span>Gold Prize – Mathematical Kangaroo</span>
+            <span class="honor-detail">Jul 2020</span>
           </div>
-          <span class="honor-detail">Jul 2020</span>
+          <div class="honor-expand">
+            <div class="honor-expand-inner">
+              <span class="honor-sub">Achieved a perfect score in the international Mathematical Kangaroo competition</span>
+            </div>
+          </div>
         </li>
         <li>
-          <div>
-            First Prize – National Mathematics Competition for Secondary Schools
-            <span class="honor-sub">Consistently awarded the first prize in all rounds of the national competition for young mathematicians</span>
+          <div class="honor-top">
+            <span>First Prize – National Mathematics Competition for Secondary Schools</span>
+            <span class="honor-detail">2018, 2019, 2020</span>
           </div>
-          <span class="honor-detail">2018, 2019, 2020</span>
+          <div class="honor-expand">
+            <div class="honor-expand-inner">
+              <span class="honor-sub">Consistently awarded the first prize in all rounds of the national competition for young mathematicians</span>
+            </div>
+          </div>
         </li>
       </ul>
     </div>
@@ -537,6 +670,7 @@
       <div class="contact-row">
         <a href="mailto:mosch@stanford.edu">mosch@stanford.edu</a>
         <a href="https://www.linkedin.com/in/moritzschreyoegg" target="_blank">LinkedIn</a>
+        <a href="https://github.com/mathemoritz" target="_blank">GitHub</a>
       </div>
     </div>
 
@@ -548,6 +682,7 @@
   </div>
 
   <script>
+    // Scroll-triggered fade-in
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -557,6 +692,30 @@
     }, { threshold: 0.1 });
 
     document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+    // Click to toggle individual items
+    document.querySelectorAll('.item').forEach(item => {
+      item.addEventListener('click', () => {
+        item.classList.toggle('expanded');
+      });
+    });
+
+    document.querySelectorAll('.honors-list li').forEach(item => {
+      item.addEventListener('click', () => {
+        item.classList.toggle('expanded');
+      });
+    });
+
+    // Expand all toggle
+    const expandBtn = document.getElementById('expandBtn');
+    const container = document.querySelector('.container');
+    let allExpanded = false;
+
+    expandBtn.addEventListener('click', () => {
+      allExpanded = !allExpanded;
+      container.classList.toggle('all-expanded', allExpanded);
+      expandBtn.textContent = allExpanded ? 'collapse all' : 'expand all';
+    });
   </script>
 
 </body>
