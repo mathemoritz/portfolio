@@ -5,17 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Moritz Schreyögg</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Newsreader:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
   <style>
     :root {
-      --ink: #1a1a1a;
-      --paper: #f8f6f2;
-      --stone: #6b6560;
-      --accent: #2d5a3d;
-      --accent-light: #e8f0eb;
-      --rule: #d8d4ce;
-      --card: #ffffff;
-      --shadow: rgba(0,0,0,0.04);
+      --bg: #ffffff;
+      --text: #111111;
+      --muted: #666666;
+      --faint: #999999;
+      --rule: #e0e0e0;
+      --accent: #003a70;
+      --num: #b0b0b0;
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -26,506 +25,275 @@
     }
 
     body {
-      font-family: 'DM Sans', sans-serif;
-      background: var(--paper);
-      color: var(--ink);
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
       line-height: 1.7;
       font-weight: 400;
       -webkit-font-smoothing: antialiased;
     }
 
-    /* ── NAV ── */
-    nav {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      z-index: 100;
-      background: rgba(248, 246, 242, 0.9);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--rule);
-    }
-
-    nav .nav-inner {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 1rem 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    nav .logo {
-      font-family: 'DM Serif Display', serif;
-      font-size: 1.25rem;
-      color: var(--ink);
-      text-decoration: none;
-      letter-spacing: -0.01em;
-    }
-
-    nav .nav-links {
-      display: flex;
-      gap: 2rem;
-      list-style: none;
-    }
-
-    nav .nav-links a {
-      text-decoration: none;
-      color: var(--stone);
-      font-size: 0.875rem;
-      font-weight: 500;
-      letter-spacing: 0.03em;
-      text-transform: uppercase;
-      transition: color 0.2s;
-    }
-
-    nav .nav-links a:hover { color: var(--ink); }
-
-    /* ── SECTIONS ── */
-    section {
-      max-width: 1100px;
+    /* ── LAYOUT ── */
+    .container {
+      max-width: 720px;
       margin: 0 auto;
       padding: 0 2rem;
     }
 
-    .section-label {
-      font-size: 0.75rem;
-      font-weight: 600;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 1.5rem;
+    /* ── HEADER ── */
+    header {
+      padding: 2.5rem 0 1.5rem;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .header-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .header-name {
+      font-size: 0.875rem;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+    }
+
+    .header-links {
+      display: flex;
+      gap: 1.5rem;
+      list-style: none;
+    }
+
+    .header-links a {
+      font-size: 0.8rem;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .header-links a:hover {
+      color: var(--text);
     }
 
     /* ── HERO ── */
-    #hero {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      padding-top: 5rem;
+    .hero {
+      padding: 6rem 0 5rem;
     }
 
-    .hero-content {
-      max-width: 720px;
-    }
-
-    .hero-content h1 {
-      font-family: 'DM Serif Display', serif;
-      font-size: clamp(2.8rem, 5.5vw, 4.2rem);
+    .hero-hook {
+      font-family: 'Newsreader', Georgia, serif;
+      font-size: clamp(2rem, 4.5vw, 3rem);
       font-weight: 400;
-      line-height: 1.15;
+      line-height: 1.3;
       letter-spacing: -0.02em;
-      margin-bottom: 1.5rem;
-      color: var(--ink);
+      margin-bottom: 2rem;
+      color: var(--text);
     }
 
-    .hero-content h1 .accent {
+    .hero-hook em {
+      font-style: italic;
       color: var(--accent);
     }
 
-    .hero-content p {
-      font-size: 1.15rem;
-      color: var(--stone);
+    .hero-sub {
+      font-size: 1rem;
+      color: var(--muted);
       max-width: 540px;
       line-height: 1.8;
-      margin-bottom: 2rem;
-    }
-
-    .hero-links {
-      display: flex;
-      gap: 1rem;
-      flex-wrap: wrap;
-    }
-
-    .hero-links a {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-      padding: 0.65rem 1.4rem;
-      border-radius: 6px;
-      font-size: 0.875rem;
-      font-weight: 500;
-      text-decoration: none;
-      transition: all 0.2s;
-    }
-
-    .btn-primary {
-      background: var(--accent);
-      color: #fff;
-    }
-
-    .btn-primary:hover {
-      background: #234a30;
-      transform: translateY(-1px);
-      box-shadow: 0 4px 12px rgba(45,90,61,0.2);
-    }
-
-    .btn-secondary {
-      background: transparent;
-      color: var(--ink);
-      border: 1.5px solid var(--rule);
-    }
-
-    .btn-secondary:hover {
-      border-color: var(--ink);
-      transform: translateY(-1px);
-    }
-
-    /* ── ABOUT ── */
-    #about {
-      padding-top: 8rem;
-      padding-bottom: 6rem;
-    }
-
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 4rem;
-      align-items: start;
-    }
-
-    .about-text h2 {
-      font-family: 'DM Serif Display', serif;
-      font-size: 2rem;
-      font-weight: 400;
-      margin-bottom: 1.25rem;
-      letter-spacing: -0.01em;
-    }
-
-    .about-text p {
-      color: var(--stone);
-      margin-bottom: 1rem;
-      font-size: 1rem;
-    }
-
-    .stats-row {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.5rem;
-      margin-top: 2rem;
-    }
-
-    .stat {
-      text-align: center;
-      padding: 1.5rem 1rem;
-      background: var(--card);
-      border-radius: 8px;
-      border: 1px solid var(--rule);
-    }
-
-    .stat .number {
-      font-family: 'DM Serif Display', serif;
-      font-size: 2rem;
-      color: var(--accent);
-      display: block;
-      line-height: 1;
-      margin-bottom: 0.4rem;
-    }
-
-    .stat .label {
-      font-size: 0.8rem;
-      color: var(--stone);
-      letter-spacing: 0.02em;
-    }
-
-    /* ── PROJECTS ── */
-    #projects {
-      padding-top: 4rem;
-      padding-bottom: 6rem;
-    }
-
-    .projects-header {
-      margin-bottom: 3rem;
-    }
-
-    .projects-header h2 {
-      font-family: 'DM Serif Display', serif;
-      font-size: 2rem;
-      font-weight: 400;
-      letter-spacing: -0.01em;
-    }
-
-    .project-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1.5rem;
-    }
-
-    .project-card {
-      background: var(--card);
-      border: 1px solid var(--rule);
-      border-radius: 10px;
-      padding: 2rem;
-      transition: all 0.25s ease;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .project-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 3px;
-      background: var(--accent);
-      transform: scaleX(0);
-      transform-origin: left;
-      transition: transform 0.3s ease;
-    }
-
-    .project-card:hover::before {
-      transform: scaleX(1);
-    }
-
-    .project-card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 8px 30px var(--shadow), 0 2px 8px var(--shadow);
-      border-color: transparent;
-    }
-
-    .project-tag {
-      display: inline-block;
-      font-size: 0.7rem;
-      font-weight: 600;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--accent);
-      background: var(--accent-light);
-      padding: 0.25rem 0.6rem;
-      border-radius: 4px;
-      margin-bottom: 0.75rem;
-    }
-
-    .project-card h3 {
-      font-family: 'DM Serif Display', serif;
-      font-size: 1.3rem;
-      font-weight: 400;
-      margin-bottom: 0.6rem;
-      letter-spacing: -0.01em;
-    }
-
-    .project-card p {
-      color: var(--stone);
-      font-size: 0.9rem;
-      line-height: 1.65;
       margin-bottom: 1rem;
     }
 
-    .tech-stack {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.4rem;
-    }
-
-    .tech-stack span {
+    .hero-scroll {
       font-size: 0.75rem;
-      color: var(--stone);
-      background: var(--paper);
-      padding: 0.2rem 0.55rem;
-      border-radius: 4px;
-      border: 1px solid var(--rule);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--faint);
+      margin-top: 3rem;
     }
 
-    /* ── EXPERIENCE ── */
-    #experience {
-      padding-top: 4rem;
-      padding-bottom: 6rem;
+    /* ── SECTIONS ── */
+    .section {
+      padding: 4rem 0;
+      border-top: 1px solid var(--rule);
     }
 
-    .experience-header h2 {
-      font-family: 'DM Serif Display', serif;
-      font-size: 2rem;
-      font-weight: 400;
-      margin-bottom: 3rem;
-      letter-spacing: -0.01em;
-    }
-
-    .timeline {
-      position: relative;
-      padding-left: 2rem;
-    }
-
-    .timeline::before {
-      content: '';
-      position: absolute;
-      left: 0;
-      top: 0.5rem;
-      bottom: 0.5rem;
-      width: 1.5px;
-      background: var(--rule);
-    }
-
-    .timeline-item {
-      position: relative;
-      padding-bottom: 2.5rem;
-    }
-
-    .timeline-item:last-child { padding-bottom: 0; }
-
-    .timeline-item::before {
-      content: '';
-      position: absolute;
-      left: -2rem;
-      top: 0.55rem;
-      width: 9px;
-      height: 9px;
-      border-radius: 50%;
-      background: var(--accent);
-      border: 2px solid var(--paper);
-      transform: translateX(-50%);
-      margin-left: 0.75px;
-    }
-
-    .timeline-item .period {
-      font-size: 0.8rem;
-      color: var(--accent);
-      font-weight: 500;
-      margin-bottom: 0.2rem;
-      letter-spacing: 0.02em;
-    }
-
-    .timeline-item h3 {
-      font-family: 'DM Serif Display', serif;
-      font-size: 1.2rem;
-      font-weight: 400;
-      margin-bottom: 0.15rem;
-    }
-
-    .timeline-item .company {
-      font-size: 0.9rem;
-      color: var(--stone);
-      margin-bottom: 0.5rem;
-    }
-
-    .timeline-item p {
-      color: var(--stone);
-      font-size: 0.875rem;
-      line-height: 1.7;
-    }
-
-    /* ── EDUCATION ── */
-    #education {
-      padding-top: 4rem;
-      padding-bottom: 6rem;
-    }
-
-    .education-header h2 {
-      font-family: 'DM Serif Display', serif;
-      font-size: 2rem;
-      font-weight: 400;
-      margin-bottom: 3rem;
-      letter-spacing: -0.01em;
-    }
-
-    .edu-cards {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
+    .section-head {
+      display: flex;
+      align-items: baseline;
       gap: 1.5rem;
+      margin-bottom: 2.5rem;
     }
 
-    .edu-card {
-      background: var(--card);
-      border: 1px solid var(--rule);
-      border-radius: 10px;
-      padding: 1.75rem;
-    }
-
-    .edu-card .period {
+    .section-num {
       font-size: 0.8rem;
-      color: var(--accent);
       font-weight: 500;
-      margin-bottom: 0.3rem;
+      color: var(--num);
+      letter-spacing: 0.02em;
+      flex-shrink: 0;
     }
 
-    .edu-card h3 {
-      font-family: 'DM Serif Display', serif;
-      font-size: 1.15rem;
+    .section-title {
+      font-family: 'Newsreader', Georgia, serif;
+      font-size: 1.5rem;
       font-weight: 400;
-      margin-bottom: 0.2rem;
+      letter-spacing: -0.01em;
     }
 
-    .edu-card .degree {
-      font-size: 0.9rem;
-      color: var(--stone);
+    /* ── NUMBERED ITEMS ── */
+    .items {
+      list-style: none;
     }
 
-    .edu-card .detail {
-      font-size: 0.85rem;
-      color: var(--accent);
+    .item {
+      display: grid;
+      grid-template-columns: 2.5rem 1fr;
+      gap: 0;
+      padding: 1.25rem 0;
+      border-bottom: 1px solid var(--rule);
+      align-items: baseline;
+    }
+
+    .item:last-child {
+      border-bottom: none;
+    }
+
+    .item-num {
+      font-size: 0.8rem;
+      color: var(--num);
       font-weight: 500;
+      padding-top: 0.15rem;
+    }
+
+    .item-content h3 {
+      font-size: 1rem;
+      font-weight: 500;
+      margin-bottom: 0.2rem;
+      line-height: 1.4;
+    }
+
+    .item-meta {
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 0.35rem;
+    }
+
+    .item-desc {
+      font-size: 0.875rem;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+
+    .item-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
       margin-top: 0.5rem;
     }
 
-    /* ── CONTACT ── */
-    #contact {
-      padding-top: 4rem;
-      padding-bottom: 8rem;
+    .item-tags span {
+      font-size: 0.7rem;
+      color: var(--faint);
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
     }
 
-    .contact-box {
-      background: var(--card);
-      border: 1px solid var(--rule);
-      border-radius: 12px;
-      padding: 3.5rem;
-      text-align: center;
-      max-width: 600px;
-      margin: 0 auto;
+    .item-tags span::after {
+      content: ' ·';
+      color: var(--num);
     }
 
-    .contact-box h2 {
-      font-family: 'DM Serif Display', serif;
-      font-size: 2rem;
-      font-weight: 400;
+    .item-tags span:last-child::after {
+      content: '';
+    }
+
+    /* ── SKILLS LIST ── */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem 3rem;
+    }
+
+    .skill-group h4 {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--faint);
       margin-bottom: 0.75rem;
     }
 
-    .contact-box p {
-      color: var(--stone);
-      margin-bottom: 2rem;
-      font-size: 1rem;
+    .skill-group ul {
+      list-style: none;
     }
 
-    .contact-links {
+    .skill-group li {
+      font-size: 0.875rem;
+      color: var(--muted);
+      padding: 0.25rem 0;
+      line-height: 1.5;
+    }
+
+    /* ── HONORS ── */
+    .honors-list {
+      list-style: none;
+    }
+
+    .honors-list li {
+      font-size: 0.9rem;
+      color: var(--text);
+      padding: 0.5rem 0;
+      border-bottom: 1px solid var(--rule);
       display: flex;
-      justify-content: center;
+      justify-content: space-between;
+      align-items: baseline;
       gap: 1rem;
+    }
+
+    .honors-list li:last-child {
+      border-bottom: none;
+    }
+
+    .honors-list .honor-detail {
+      font-size: 0.8rem;
+      color: var(--faint);
+      flex-shrink: 0;
+    }
+
+    /* ── CONTACT ── */
+    .contact-row {
+      display: flex;
+      gap: 1.5rem;
       flex-wrap: wrap;
     }
 
-    .contact-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      padding: 0.7rem 1.4rem;
-      border: 1.5px solid var(--rule);
-      border-radius: 6px;
-      text-decoration: none;
-      color: var(--ink);
+    .contact-row a {
       font-size: 0.875rem;
-      font-weight: 500;
-      transition: all 0.2s;
+      color: var(--text);
+      text-decoration: none;
+      border-bottom: 1px solid var(--rule);
+      padding-bottom: 2px;
+      transition: border-color 0.2s;
     }
 
-    .contact-link:hover {
-      border-color: var(--accent);
-      color: var(--accent);
-      transform: translateY(-1px);
+    .contact-row a:hover {
+      border-color: var(--text);
     }
 
     /* ── FOOTER ── */
     footer {
       border-top: 1px solid var(--rule);
-      padding: 2rem;
-      text-align: center;
-      font-size: 0.8rem;
-      color: var(--stone);
+      padding: 2rem 0;
+      font-size: 0.75rem;
+      color: var(--faint);
     }
 
     /* ── ANIMATIONS ── */
     .fade-in {
       opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 0.6s ease, transform 0.6s ease;
+      transform: translateY(12px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
     }
 
     .fade-in.visible {
@@ -534,256 +302,295 @@
     }
 
     /* ── RESPONSIVE ── */
-    @media (max-width: 768px) {
-      nav .nav-links { display: none; }
-
-      .about-grid {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-      }
-
-      .project-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .edu-cards {
-        grid-template-columns: 1fr;
-      }
-
-      .stats-row {
-        grid-template-columns: repeat(3, 1fr);
-        gap: 0.75rem;
-      }
-
-      .contact-box { padding: 2rem; }
+    @media (max-width: 640px) {
+      .hero { padding: 4rem 0 3rem; }
+      .hero-hook { font-size: 1.75rem; }
+      .skills-grid { grid-template-columns: 1fr; }
+      .header-links { gap: 1rem; }
+      .honors-list li { flex-direction: column; gap: 0.15rem; }
     }
   </style>
 </head>
 <body>
 
-  <!-- NAV -->
-  <nav>
-    <div class="nav-inner">
-      <a href="#hero" class="logo">M.S.</a>
-      <ul class="nav-links">
-        <li><a href="#about">About</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#experience">Experience</a></li>
-        <li><a href="#education">Education</a></li>
-        <li><a href="#contact">Contact</a></li>
+  <div class="container">
+
+    <!-- HEADER -->
+    <header>
+      <div class="header-inner">
+        <div class="header-name">Moritz Schreyögg</div>
+        <nav>
+          <ul class="header-links">
+            <li><a href="mailto:mosch@stanford.edu">Email</a></li>
+            <li><a href="https://linkedin.com/in/moritz.schreyoegg" target="_blank">LinkedIn</a></li>
+            <li><a href="https://github.com/" target="_blank">GitHub</a></li>
+            <li><a href="resume_MoritzSchreyoegg_updated.pdf" target="_blank">Resume</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <!-- HERO -->
+    <div class="hero fade-in">
+      <h1 class="hero-hook">i want to build <em>excavators</em>,<br>not shovels.</h1>
+      <p class="hero-sub">Stanford Honors Mathematics. I use quantitative thinking and structured problem-solving to move industries forward — from manufacturing analytics to multi-agent AI systems. Four languages, five countries, and a drive to make complex things simple.</p>
+      <p class="hero-sub">Currently an analyst at Stanford Consulting and incoming data science intern at Tacto.</p>
+      <div class="hero-scroll">scroll</div>
+    </div>
+
+    <!-- 01 EXPERIENCE -->
+    <div class="section fade-in">
+      <div class="section-head">
+        <span class="section-num">01</span>
+        <h2 class="section-title">experience</h2>
+      </div>
+      <ul class="items">
+        <li class="item">
+          <span class="item-num">01</span>
+          <div class="item-content">
+            <h3>Data Scientist & EiR Intern</h3>
+            <div class="item-meta">Tacto (Sequoia & Index backed) · Jul – Oct 2025</div>
+            <p class="item-desc">Engineered data automation pipelines for GTM and Sales, eliminating ~80 hours of manual work weekly. Built multi-agent systems for context-aware reasoning on unstructured data. Applied predictive modeling to identify high-potential customer segments.</p>
+          </div>
+        </li>
+        <li class="item">
+          <span class="item-num">02</span>
+          <div class="item-content">
+            <h3>Analyst</h3>
+            <div class="item-meta">Stanford Consulting · Feb 2025 – Present</div>
+            <p class="item-desc">Conduct structured research and analysis across client engagements. Synthesize data into actionable recommendations and deliver findings to senior stakeholders.</p>
+          </div>
+        </li>
+        <li class="item">
+          <span class="item-num">03</span>
+          <div class="item-content">
+            <h3>Automation Lead</h3>
+            <div class="item-meta">premiumwohnen bodensee GmbH · Feb – Sep 2024</div>
+            <p class="item-desc">Developed internal applications to digitize real estate operations, reducing manual workload by 40 hours/week. Trained ML models on historical sales data for property price prediction.</p>
+          </div>
+        </li>
+        <li class="item">
+          <span class="item-num">04</span>
+          <div class="item-content">
+            <h3>Research Intern, Advanced Analytics</h3>
+            <div class="item-meta">ZF Friedrichshafen · Sep 2023 – Jan 2024</div>
+            <p class="item-desc">Built knowledge graphs for manufacturing dependency mapping across 16 international plants. Integrated optimized C++ kernels into Python ETL pipelines.</p>
+          </div>
+        </li>
+        <li class="item">
+          <span class="item-num">05</span>
+          <div class="item-content">
+            <h3>Researcher</h3>
+            <div class="item-meta">University of Tokyo · Apr – Aug 2023</div>
+            <p class="item-desc">Theoretical research on the McKay Correspondence, bridging Group Theory and Algebraic Geometry. Authored analysis on sensory factors in business strategy under Prof. Schillack.</p>
+          </div>
+        </li>
       </ul>
     </div>
-  </nav>
 
-  <!-- HERO -->
-  <section id="hero">
-    <div class="hero-content">
-      <div class="section-label">Stanford Mathematics (Honors)</div>
-      <h1>Moritz Schreyögg<br><span class="accent">builds at the intersection of math, data, and people.</span></h1>
-      <p>Honors Mathematics student at Stanford. I use quantitative thinking to solve real problems, from optimizing traffic flows to engineering ML pipelines. Four languages, five countries, one goal: carry ideas into the world.</p>
-      <div class="hero-links">
-        <a href="#projects" class="btn-primary">View Projects</a>
-        <a href="#contact" class="btn-secondary">Get in Touch</a>
+    <!-- 02 PROJECTS -->
+    <div class="section fade-in">
+      <div class="section-head">
+        <span class="section-num">02</span>
+        <h2 class="section-title">things i've built</h2>
       </div>
+      <ul class="items">
+        <li class="item">
+          <span class="item-num">01</span>
+          <div class="item-content">
+            <h3>ML Validation Pipeline</h3>
+            <p class="item-desc">Architected a testing pipeline for asset pricing models using moving-block bootstrapping. Reduced false discovery rates from 97% to 5% in high-noise datasets.</p>
+            <div class="item-tags">
+              <span>Python</span><span>NumPy</span><span>SciPy</span><span>scikit-learn</span>
+            </div>
+          </div>
+        </li>
+        <li class="item">
+          <span class="item-num">02</span>
+          <div class="item-content">
+            <h3>GTM Intelligence Engine</h3>
+            <p class="item-desc">Hierarchical multi-agent system processing unstructured data — emails, transcripts, CRM notes — for context-aware sales reasoning. Improved win-probability prediction by 30%.</p>
+            <div class="item-tags">
+              <span>Python</span><span>LLMs</span><span>ETL</span><span>Multi-Agent</span>
+            </div>
+          </div>
+        </li>
+        <li class="item">
+          <span class="item-num">03</span>
+          <div class="item-content">
+            <h3>Traffic Signal Optimization</h3>
+            <p class="item-desc">Graph-based scheduling algorithm for automated traffic phase timing. Linear constraint solving to maximize intersection throughput across complex networks.</p>
+            <div class="item-tags">
+              <span>Python</span><span>Graph Theory</span><span>Linear Programming</span>
+            </div>
+          </div>
+        </li>
+        <li class="item">
+          <span class="item-num">04</span>
+          <div class="item-content">
+            <h3>F1 Strategy Predictor</h3>
+            <p class="item-desc">LightGBM model on FastF1 telemetry predicting pit windows with 3.2 lap MAE. Engineered features for tire degradation with strict leakage prevention.</p>
+            <div class="item-tags">
+              <span>Python</span><span>LightGBM</span><span>pandas</span><span>FastF1</span>
+            </div>
+          </div>
+        </li>
+        <li class="item">
+          <span class="item-num">05</span>
+          <div class="item-content">
+            <h3>Recycling Startup — Co-Founder</h3>
+            <p class="item-desc">Founded and led a 23-member team building a campus-wide recycling infrastructure. Designed operations, managed logistics, and secured institutional partnerships.</p>
+            <div class="item-tags">
+              <span>Leadership</span><span>Operations</span><span>Impact</span>
+            </div>
+          </div>
+        </li>
+      </ul>
     </div>
-  </section>
 
-  <!-- ABOUT -->
-  <section id="about" class="fade-in">
-    <div class="section-label">About</div>
-    <div class="about-grid">
-      <div class="about-text">
-        <h2>Mathematics as a shared language</h2>
-        <p>I study Honors Mathematics at Stanford with a focus on bridging theory and application. My work spans machine learning, graph theory, statistical modeling, and data engineering.</p>
-        <p>Before Stanford, I researched at the University of Tokyo, built knowledge graphs at ZF Friedrichshafen, and founded a 23-member recycling startup. I bring people from diverse disciplines together to solve problems that matter.</p>
+    <!-- 03 EDUCATION -->
+    <div class="section fade-in">
+      <div class="section-head">
+        <span class="section-num">03</span>
+        <h2 class="section-title">education</h2>
       </div>
-      <div class="stats-row">
-        <div class="stat">
-          <span class="number">4.04</span>
-          <span class="label">GPA</span>
+      <ul class="items">
+        <li class="item">
+          <span class="item-num">01</span>
+          <div class="item-content">
+            <h3>Stanford University</h3>
+            <div class="item-meta">B.S. Mathematics (Honors) · Apr 2024 – Present</div>
+            <p class="item-desc">GPA: 4.04. Coursework in real analysis, linear algebra, probability, optimization, and machine learning. Member of Stanford Consulting.</p>
+          </div>
+        </li>
+        <li class="item">
+          <span class="item-num">02</span>
+          <div class="item-content">
+            <h3>University of Tokyo</h3>
+            <div class="item-meta">Dual Research Program · Apr – Aug 2023</div>
+            <p class="item-desc">Research in pure mathematics and economics. Studied under faculty in the Graduate School of Mathematical Sciences.</p>
+          </div>
+        </li>
+        <li class="item">
+          <span class="item-num">03</span>
+          <div class="item-content">
+            <h3>EF / New York University</h3>
+            <div class="item-meta">University & Research Foundation · Sep 2022 – Mar 2023</div>
+          </div>
+        </li>
+        <li class="item">
+          <span class="item-num">04</span>
+          <div class="item-content">
+            <h3>Graf-Zeppelin-Gymnasium</h3>
+            <div class="item-meta">Abitur · Sep 2016 – Jul 2022</div>
+            <p class="item-desc">Final grade: 1.0 (highest possible). Focus on mathematics and physics.</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <!-- 04 HONORS -->
+    <div class="section fade-in">
+      <div class="section-head">
+        <span class="section-num">04</span>
+        <h2 class="section-title">honors & awards</h2>
+      </div>
+      <ul class="honors-list">
+        <li>
+          Stanford Honors Mathematics Program
+          <span class="honor-detail">Stanford, 2024</span>
+        </li>
+        <li>
+          Abitur Grade 1.0 — Top of Class
+          <span class="honor-detail">Germany, 2022</span>
+        </li>
+        <li>
+          University of Tokyo Research Fellowship
+          <span class="honor-detail">Tokyo, 2023</span>
+        </li>
+        <li>
+          e-fellows.net Scholarship Recipient
+          <span class="honor-detail">Germany</span>
+        </li>
+        <li>
+          Founder, Campus Recycling Initiative (23 members)
+          <span class="honor-detail">Germany, 2021</span>
+        </li>
+      </ul>
+    </div>
+
+    <!-- 05 SKILLS & LANGUAGES -->
+    <div class="section fade-in">
+      <div class="section-head">
+        <span class="section-num">05</span>
+        <h2 class="section-title">skills & languages</h2>
+      </div>
+      <div class="skills-grid">
+        <div class="skill-group">
+          <h4>Technical</h4>
+          <ul>
+            <li>Python, C++, SQL, R</li>
+            <li>Machine Learning & Statistical Modeling</li>
+            <li>Data Engineering & ETL Pipelines</li>
+            <li>Graph Theory & Optimization</li>
+            <li>Multi-Agent AI Systems</li>
+            <li>Knowledge Graphs</li>
+          </ul>
         </div>
-        <div class="stat">
-          <span class="number">4</span>
-          <span class="label">Languages</span>
+        <div class="skill-group">
+          <h4>Analytical</h4>
+          <ul>
+            <li>Structured Problem Solving</li>
+            <li>Quantitative Analysis</li>
+            <li>Market Research & Sizing</li>
+            <li>Data Visualization</li>
+            <li>Hypothesis-Driven Thinking</li>
+            <li>Stakeholder Communication</li>
+          </ul>
         </div>
-        <div class="stat">
-          <span class="number">5</span>
-          <span class="label">Countries</span>
+        <div class="skill-group">
+          <h4>Languages</h4>
+          <ul>
+            <li>German — Native</li>
+            <li>English — Fluent (C2)</li>
+            <li>French — Intermediate (B2)</li>
+            <li>Japanese — Basic (A2)</li>
+          </ul>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- PROJECTS -->
-  <section id="projects" class="fade-in">
-    <div class="projects-header">
-      <div class="section-label">Selected Work</div>
-      <h2>Projects</h2>
-    </div>
-    <div class="project-grid">
-
-      <div class="project-card">
-        <span class="project-tag">Machine Learning</span>
-        <h3>ML Validation Pipeline</h3>
-        <p>Architected a testing pipeline for asset pricing models using moving-block bootstrapping, reducing false discovery rates from 97% to 5% in high-noise datasets.</p>
-        <div class="tech-stack">
-          <span>Python</span>
-          <span>NumPy</span>
-          <span>SciPy</span>
-          <span>scikit-learn</span>
-        </div>
-      </div>
-
-      <div class="project-card">
-        <span class="project-tag">Multi-Agent Systems</span>
-        <h3>GTM Intelligence Engine</h3>
-        <p>Built a hierarchical multi-agent system processing unstructured data (emails, transcripts) for context-aware reasoning, improving win-probability prediction accuracy by 30%.</p>
-        <div class="tech-stack">
-          <span>Python</span>
-          <span>LLMs</span>
-          <span>ETL</span>
+        <div class="skill-group">
+          <h4>Tools</h4>
+          <ul>
+            <li>NumPy, pandas, scikit-learn</li>
+            <li>SciPy, LightGBM, PyTorch</li>
+            <li>Git, Docker, Linux</li>
+            <li>Tableau, Excel, LaTeX</li>
+          </ul>
         </div>
       </div>
-
-      <div class="project-card">
-        <span class="project-tag">Graph Theory</span>
-        <h3>Traffic Signal Optimization</h3>
-        <p>Implemented a graph-based scheduling algorithm to automate traffic phase timing, using linear constraint solving to maximize intersection throughput.</p>
-        <div class="tech-stack">
-          <span>Python</span>
-          <span>Graph Theory</span>
-          <span>Linear Programming</span>
-        </div>
-      </div>
-
-      <div class="project-card">
-        <span class="project-tag">Predictive Modeling</span>
-        <h3>F1 Strategy Predictor</h3>
-        <p>Trained a LightGBM model on FastF1 telemetry to predict pit windows with 3.2 lap MAE, engineering features for tire degradation with strict leakage prevention.</p>
-        <div class="tech-stack">
-          <span>Python</span>
-          <span>LightGBM</span>
-          <span>pandas</span>
-          <span>FastF1</span>
-        </div>
-      </div>
-
     </div>
-  </section>
 
-  <!-- EXPERIENCE -->
-  <section id="experience" class="fade-in">
-    <div class="experience-header">
-      <div class="section-label">Career</div>
-      <h2>Experience</h2>
-    </div>
-    <div class="timeline">
-
-      <div class="timeline-item">
-        <div class="period">Jul 2025 &#8211; Oct 2025</div>
-        <h3>Data Scientist & EiR Intern</h3>
-        <div class="company">Tacto (Sequoia & Index backed)</div>
-        <p>Engineered data automation pipelines for GTM and Sales teams, eliminating ~80 hours of manual work weekly. Applied predictive modeling to identify high-potential customer segments.</p>
+    <!-- 06 CONTACT -->
+    <div class="section fade-in">
+      <div class="section-head">
+        <span class="section-num">06</span>
+        <h2 class="section-title">let's talk</h2>
       </div>
-
-      <div class="timeline-item">
-        <div class="period">Feb 2025 &#8211; Present</div>
-        <h3>Analyst</h3>
-        <div class="company">Stanford Consulting</div>
-        <p>Conduct research and analysis across client engagements, including data collection, market assessment, and synthesis of findings into actionable recommendations.</p>
-      </div>
-
-      <div class="timeline-item">
-        <div class="period">Feb 2024 &#8211; Sep 2024</div>
-        <h3>Automation Lead</h3>
-        <div class="company">premiumwohnen bodensee GmbH</div>
-        <p>Developed internal applications to digitize operations, reducing manual workload by 40 hours/week. Trained ML models to predict property selling prices using historical sales data.</p>
-      </div>
-
-      <div class="timeline-item">
-        <div class="period">Sep 2023 &#8211; Jan 2024</div>
-        <h3>Research Intern</h3>
-        <div class="company">ZF Friedrichshafen, Advanced Analytics</div>
-        <p>Engineered knowledge graphs for manufacturing dependency mapping. Integrated optimized C++ kernels into Python pipelines and automated ETL across 16 international plants.</p>
-      </div>
-
-      <div class="timeline-item">
-        <div class="period">Apr 2023 &#8211; Aug 2023</div>
-        <h3>Researcher</h3>
-        <div class="company">University of Tokyo</div>
-        <p>Conducted theoretical research on the McKay Correspondence, bridging Group Theory and Algebraic Geometry. Authored analysis on sensory factors in business strategy.</p>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- EDUCATION -->
-  <section id="education" class="fade-in">
-    <div class="education-header">
-      <div class="section-label">Education</div>
-      <h2>Academic Background</h2>
-    </div>
-    <div class="edu-cards">
-
-      <div class="edu-card">
-        <div class="period">Apr 2024 &#8211; Present</div>
-        <h3>Stanford University</h3>
-        <div class="degree">B.S. Mathematics (Honors)</div>
-        <div class="detail">GPA: 4.04</div>
-      </div>
-
-      <div class="edu-card">
-        <div class="period">Apr 2023 &#8211; Aug 2023</div>
-        <h3>University of Tokyo</h3>
-        <div class="degree">Dual Research Program</div>
-        <div class="detail">Mathematics & Economics</div>
-      </div>
-
-      <div class="edu-card">
-        <div class="period">Sep 2022 &#8211; Mar 2023</div>
-        <h3>EF / New York University</h3>
-        <div class="degree">University & Research Foundation</div>
-      </div>
-
-      <div class="edu-card">
-        <div class="period">Sep 2016 &#8211; Jul 2022</div>
-        <h3>Graf-Zeppelin-Gymnasium</h3>
-        <div class="degree">Abitur</div>
-        <div class="detail">Grade: 1.0</div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- CONTACT -->
-  <section id="contact" class="fade-in">
-    <div class="section-label">Connect</div>
-    <div class="contact-box">
-      <h2>Let's talk</h2>
-      <p>Always open to conversations about mathematics, data, or building something meaningful together.</p>
-      <div class="contact-links">
-        <a href="mailto:mosch@stanford.edu" class="contact-link">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 7l-10 7L2 7"/></svg>
-          mosch@stanford.edu
-        </a>
-        <a href="https://linkedin.com/in/moritz.schreyoegg" class="contact-link" target="_blank">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-          LinkedIn
-        </a>
-        <a href="https://github.com/" class="contact-link" target="_blank">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
-          GitHub
-        </a>
+      <p class="hero-sub" style="margin-bottom: 1.5rem;">Always open to conversations about hard problems, structured thinking, or building something meaningful.</p>
+      <div class="contact-row">
+        <a href="mailto:mosch@stanford.edu">mosch@stanford.edu</a>
+        <a href="https://linkedin.com/in/moritz.schreyoegg" target="_blank">LinkedIn</a>
+        <a href="https://github.com/" target="_blank">GitHub</a>
       </div>
     </div>
-  </section>
 
-  <footer>
-    &copy; 2026 Moritz Schreyögg
-  </footer>
+    <!-- FOOTER -->
+    <footer>
+      &copy; 2026 Moritz Schreyögg
+    </footer>
+
+  </div>
 
   <script>
-    // Scroll-triggered fade-in
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -793,21 +600,6 @@
     }, { threshold: 0.1 });
 
     document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-
-    // Smooth nav highlight
-    const sections = document.querySelectorAll('section[id]');
-    const navLinks = document.querySelectorAll('.nav-links a');
-
-    window.addEventListener('scroll', () => {
-      let current = '';
-      sections.forEach(section => {
-        const top = section.offsetTop - 120;
-        if (pageYOffset >= top) current = section.getAttribute('id');
-      });
-      navLinks.forEach(link => {
-        link.style.color = link.getAttribute('href') === '#' + current ? '#1a1a1a' : '';
-      });
-    });
   </script>
 
 </body>
